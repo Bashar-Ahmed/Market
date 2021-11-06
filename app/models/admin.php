@@ -37,7 +37,7 @@ class Item {
         foreach($rows as $i){
         $dx = \DB::get_instance();
         $stmt=$dx->prepare("INSERT INTO purchasehistory (userid,itemid,itemname,quantity,purchase_cost) VALUES (?,?,?,?,?)"); 
-        $stmt->execute([$_SESSION["id"],$i[0],$i[1],$i[5],$i[5]*$i[2]]);         
+        $stmt->execute([$_SESSION["id"],$i[0],$i[1],$i[5],$i[5]*$i[3]]);         
         }
 
     }
