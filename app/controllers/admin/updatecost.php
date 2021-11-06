@@ -2,9 +2,9 @@
 
 namespace Controller;
 
-class Updatecost{
+class Updatecost {
 
-    public function post(){
+    public function post() {
 
         \Controller\Util::check_session_ifnotset("/","admin");
         \Controller\Util::check_post("/","iditem");
@@ -12,7 +12,5 @@ class Updatecost{
         \Model\Item::costupdate($_POST["iditem"],$newcost);
         header("Location: /itemlist-admin");
     }
-
-
 
 }
