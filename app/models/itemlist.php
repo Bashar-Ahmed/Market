@@ -40,5 +40,16 @@ class Itemlist {
         $stmt=$db->prepare("UPDATE items SET qreq = ? WHERE id = ?");
         $stmt->execute([$qreq,$itemid]);
     }
-
+    public static function rm_cart($itemid){
+        $db = \DB::get_instance();   
+        $stmt=$db->prepare("UPDATE items SET qreq = 0 WHERE id = ?");
+        $stmt->execute([$itemid]);
+    }
+    public static function get_purchist($from,$till){
+        $db = \DB::get_instance();
+        $stmt = $db->prepare("SELECT * from purchasehistory WHERE purchase_time BETWEEN ? AND ?");
+        $stmt->execute([$from,$till]);
+        $rows = $stmt->fetchAll();
+        return $rows;
+    }
 }
