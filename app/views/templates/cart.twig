@@ -39,7 +39,12 @@
             <td>{{ item.category }}</td>
             <td>{{ item.cost }}</td>
             <td>{{ item.qreq }}</td>
-
+            <td>
+            <form action="/removefromcart" method="POST">
+                <button class="btn btn-danger">Remove from cart</button>
+                <input type="hidden" name="iditem" value="{{ item.id }}">
+            </td>
+            </form>
         </tr>
         {% endif %}
         {% endfor %}
